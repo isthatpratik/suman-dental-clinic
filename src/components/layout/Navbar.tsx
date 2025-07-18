@@ -9,6 +9,7 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
 } from "../ui/dropdown-menu";
+import Image from "next/image";
 
 const NAV_LINKS = [
   { label: "Home", href: "#home" },
@@ -51,10 +52,15 @@ export default function Navbar() {
     <nav className="sticky top-0 z-50 w-full bg-background/50 backdrop-blur-2xl">
       <div className="mx-auto flex max-w-[1440px] items-center justify-between px-4 py-4">
         {/* Logo/Brand */}
-        <Link href="#home" className="flex items-center gap-2 rounded-md bg-card/20 px-6 py-2" scroll={false}>
-          <span className="text-2xl text-white font-bold instrument-serif-hero italic">
-            Suman
-          </span>
+        <Link href="#home" className="flex items-center gap-2 rounded-md bg-white px-6 py-2" scroll={false}>
+          <Image
+            src="/logo-removebg-preview.png"
+            alt="Suman Dental Hospital Logo"
+            width={180}
+            height={60}
+            priority
+            className="h-12 w-auto object-contain"
+          />
         </Link>
         {/* Desktop Nav */}
         <div className="hidden lg:flex flex-1 items-center justify-center">

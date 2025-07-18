@@ -16,7 +16,9 @@ export default function Hero() {
 
   // Get day name and formatted time
   const dayName = now.toLocaleDateString(undefined, { weekday: 'long' });
-  const timeString = now.toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit', hour12: true });
+  let timeString = now.toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit', hour12: true });
+  // Ensure AM/PM is always uppercase for hydration consistency
+  timeString = timeString.replace(/am|pm/, match => match.toUpperCase());
 
   // For demo, use a placeholder image. Replace src with your own image as needed.
   return (

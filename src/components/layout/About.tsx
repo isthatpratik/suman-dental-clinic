@@ -21,6 +21,22 @@ export default function About() {
               <span className="mt-1 block w-2 h-2 rounded-full bg-primary"></span>
               <span>Personalized care for every patient</span>
             </li>
+            <li className="flex items-start gap-3">
+              <span className="mt-1 block w-2 h-2 rounded-full bg-primary"></span>
+              <span>State-of-the-art equipment and advanced dental technology</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="mt-1 block w-2 h-2 rounded-full bg-primary"></span>
+              <span>Strict hygiene and sterilization protocols for patient safety</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="mt-1 block w-2 h-2 rounded-full bg-primary"></span>
+              <span>Comprehensive dental services for all age groups</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="mt-1 block w-2 h-2 rounded-full bg-primary"></span>
+              <span>Friendly staff dedicated to patient comfort and satisfaction</span>
+            </li>
           </ul>
           <button className="mt-6 bg-primary text-primary-foreground rounded-md px-8 py-4 font-medium text-base flex items-center gap-2 shadow hover:bg-primary/90 transition">
             Book an appointment <ArrowRight className="w-5 h-5" />
