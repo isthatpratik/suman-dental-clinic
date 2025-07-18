@@ -1,0 +1,183 @@
+# Dental Hospital Website Blueprint
+
+## Project Overview
+A modern, mobile-first website for a dental hospital, designed for high usability and visual appeal. The site will leverage React, Tailwind CSS, and @origin-ui components, with subtle Framer Motion animations and custom font integration for a premium, welcoming feel.
+
+---
+
+## Core Requirements
+- **Mobile-first, fully responsive design**
+- **Modern, clean, and professional UI**
+- **Subtle, elegant animations (Framer Motion)**
+- **Accessible and SEO-friendly**
+- **Reusable, well-structured React components**
+- **Consistent use of @origin-ui for UI primitives**
+- **Custom font integration (Manrope & Instrument Serif)**
+
+---
+
+## Main Sections & Components
+1. **Navbar.tsx**
+   - Sticky, animated on scroll
+   - Uses @origin-ui Navbar component as base
+   - Links to all main sections (smooth scroll)
+   - Mobile menu (hamburger, slide-in)
+   - Logo/branding
+
+2. **Hero.tsx**
+   - Prominent headline (with highlighted/italicized word using Instrument Serif Italic)
+   - Subheading, CTA button(s)
+   - Background image/illustration (SVG or @origin-ui asset)
+   - Framer Motion entrance animation
+
+3. **About.tsx**
+   - Brief intro to the hospital
+   - Mission/vision, key stats
+   - Image or illustration
+   - Subtle fade-in animation
+
+4. **Services.tsx**
+   - List of dental services (cards or grid, @origin-ui Card/Table/List)
+   - Icons for each service (Origin UI or Lucide)
+   - Animated on scroll
+
+5. **Doctors.tsx**
+   - Profiles of doctors (photo, name, specialty, bio)
+   - Grid or carousel (@origin-ui Avatar/Card/Carousel)
+   - Animated appearance
+
+6. **Reviews.tsx**
+   - Patient testimonials (cards or carousel, @origin-ui Testimonial/Carousel)
+   - Star ratings, patient names/photos
+   - Animated on scroll
+
+7. **Contact.tsx**
+   - Contact form (@origin-ui Input, Textarea, Button)
+   - Map/location, phone, email
+   - Social links
+   - Form validation, accessible
+
+8. **Footer.tsx**
+   - Quick links, copyright
+   - Social icons
+   - Minimal, clean
+
+---
+
+## Fonts & Typography
+- **Manrope (Google Fonts, variable):**
+  - For all main text, headings, UI elements
+  - CSS Example:
+    ```css
+    .manrope-main {
+      font-family: "Manrope", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 400;
+      font-style: normal;
+    }
+    ```
+- **Instrument Serif (Google Fonts):**
+  - For highlighted/hero text (italic)
+  - CSS Example:
+    ```css
+    .instrument-serif-hero {
+      font-family: "Instrument Serif", serif;
+      font-weight: 400;
+      font-style: italic;
+    }
+    ```
+- **Font Loading:**
+  - Add `<link>` tags for both fonts in `_document.tsx` or `layout.tsx`
+  - Use Tailwind `@apply` for custom classes if needed
+
+---
+
+## Animation Plan (Framer Motion)
+- **Navbar:**
+  - Slide/fade in on mount, subtle shadow on scroll
+- **Hero:**
+  - Fade/slide in headline, staggered CTA/button animation
+- **Section Entrances:**
+  - Fade/slide in as each section enters viewport (on scroll)
+- **Cards/Items:**
+  - Staggered appearance for lists (services, doctors, reviews)
+- **Performance:**
+  - Keep animations subtle and performant, disable on reduced motion
+
+---
+
+## Component Library: @origin-ui
+- Use @origin-ui for:
+  - Navbar, Button, Card, Avatar, Input, Textarea, Carousel, Table, Icons, etc.
+- Customize with Tailwind for brand colors, spacing, and font classes
+- Prefer composable, accessible components
+
+---
+
+## Responsive & Mobile-First Design
+- **Breakpoints:**
+  - Design for mobile first, then scale up to tablet/desktop
+  - Use Tailwind's responsive utilities
+- **Navigation:**
+  - Collapsible mobile menu, large touch targets
+- **Layout:**
+  - Stacked sections on mobile, grid/flex on desktop
+- **Images:**
+  - Use Next.js `next/image` or @origin-ui image components for optimization
+- **Testing:**
+  - Test on multiple devices and browsers
+
+---
+
+## File/Folder Structure
+```
+src/
+  components/
+    layout/
+      Navbar.tsx
+      Hero.tsx
+      About.tsx
+      Services.tsx
+      Doctors.tsx
+      Reviews.tsx
+      Contact.tsx
+      Footer.tsx
+  app/
+    page.tsx (main entry, section anchors)
+    globals.css (font imports, custom classes)
+```
+
+---
+
+## Implementation Steps
+1. **Setup project:** Next.js, Tailwind, @origin-ui, Framer Motion, Google Fonts
+2. **Create font classes in `globals.css`**
+3. **Build layout components in `src/components/layout/`**
+4. **Integrate @origin-ui components and customize**
+5. **Add Framer Motion animations**
+6. **Ensure mobile-first, responsive design**
+7. **Test accessibility and performance**
+8. **QA on real devices, browsers**
+
+---
+
+## Future Enhancements
+- Blog/News section
+- Appointment booking integration
+- Multi-language support
+- Dark mode toggle
+- Analytics & SEO improvements
+
+---
+
+## References
+- [Origin UI Documentation](https://originui.com/)
+- [Google Fonts: Manrope](https://fonts.google.com/specimen/Manrope)
+- [Google Fonts: Instrument Serif](https://fonts.google.com/specimen/Instrument+Serif)
+- [Framer Motion Docs](https://www.framer.com/motion/)
+- [Next.js Docs](https://nextjs.org/docs)
+- [Tailwind CSS Docs](https://tailwindcss.com/docs)
+description:
+globs:
+alwaysApply: true
+---
