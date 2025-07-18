@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "../components/layout/Navbar";
+import FooterSection from "@/components/footer-one";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -13,6 +14,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="manrope-main bg-background">
         <Navbar />
         {children}
+        <FooterSection />
       </body>
     </html>
   );
