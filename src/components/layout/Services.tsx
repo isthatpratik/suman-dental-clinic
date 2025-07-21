@@ -65,20 +65,32 @@ export default function Services() {
           {services.map((service, idx) => (
             <div
               key={service.title}
-              className="relative group rounded-2xl overflow-hidden shadow-lg h-[340px] flex flex-col justify-end transition-transform duration-300 group-hover:-translate-y-2"
+              className="relative group rounded-2xl overflow-hidden shadow-lg h-[340px] flex flex-col transition-transform duration-300 group-hover:-translate-y-2 bg-card"
             >
-              <Image
-                src={service.img}
-                alt={service.title}
-                fill
-                className="absolute inset-0 w-full h-full object-cover blur-xs group-hover:blur-0 group-hover:scale-105 transition-all duration-300"
-                style={{ zIndex: 1 }}
-                sizes="(max-width: 1024px) 100vw, 400px"
-              />
-              {/* Image blur effect: sharp on hover */}
-              <div className="relative z-20 p-6 mt-auto">
-                <h3 className="text-white text-xl font-semibold mb-2 drop-shadow-lg">{service.title}</h3>
-                <p className="text-white text-sm drop-shadow-lg line-clamp-3">{service.desc}</p>
+              {/* Title always at the top with fixed height */}
+              <div className="flex items-center justify-between px-4 h-16 bg-background/80 z-30 relative">
+                <h3 className="text-white text-lg font-semibold drop-shadow-lg whitespace-normal break-words w-full text-left leading-tight">
+                  {service.title}
+                </h3>
+                <span className="ml-2 text-white text-2xl flex-shrink-0 transition-transform duration-300 group-hover:translate-x-1">→</span>
+              </div>
+              {/* Image and Description area (70%) */}
+              <div className="relative flex-1" style={{ flexBasis: '70%', minHeight: 0 }}>
+                {/* Image visible by default, hidden on hover */}
+                <div className="absolute inset-0 w-full h-full transition-opacity duration-300 group-hover:opacity-0">
+                  <Image
+                    src={service.img}
+                    alt={service.title}
+                    fill
+                    className="object-cover blur-xs group-hover:blur-0 group-hover:scale-105 transition-all duration-300"
+                    style={{ zIndex: 1 }}
+                    sizes="(max-width: 1024px) 100vw, 400px"
+                  />
+                </div>
+                {/* Description hidden by default, visible on hover */}
+                <div className="absolute inset-0 w-full h-full flex items-center justify-center p-4 transition-opacity duration-300 opacity-0 group-hover:opacity-80 bg-black/90 z-20">
+                  <p className="text-white text-md drop-shadow-lg whitespace-normal break-words text-center">{service.desc}</p>
+                </div>
               </div>
             </div>
           ))}

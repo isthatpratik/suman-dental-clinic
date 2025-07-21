@@ -39,10 +39,40 @@ function detectPreferredLanguage() {
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = React.useState(false);
   const [language, setLanguage] = React.useState('en');
+  const [activeSection, setActiveSection] = React.useState('home');
 
   // Detect preferred language on mount
   useEffect(() => {
     setLanguage(detectPreferredLanguage());
+  }, []);
+
+  // Scroll spy effect for active section (debounced for smoothness)
+  useEffect(() => {
+    let timeout: NodeJS.Timeout | null = null;
+    const handleScroll = () => {
+      if (timeout) clearTimeout(timeout);
+      timeout = setTimeout(() => {
+        let current = 'home';
+        for (const link of NAV_LINKS) {
+          const id = link.href.replace('#', '');
+          const section = document.getElementById(id);
+          if (section) {
+            const rect = section.getBoundingClientRect();
+            if (rect.top <= 80 && rect.bottom > 80) {
+              current = id;
+              break;
+            }
+          }
+        }
+        setActiveSection(current);
+      }, 100); // 100ms debounce
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+    return () => {
+      if (timeout) clearTimeout(timeout);
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   const currentLang = LANGUAGES.find(l => l.code === language) || LANGUAGES[0];
@@ -54,7 +84,7 @@ export default function Navbar() {
         {/* Logo/Brand */}
         <Link href="#home" className="flex items-center gap-2 rounded-md bg-white px-6 py-2" scroll={false}>
           <Image
-            src="/logo-removebg-preview.png"
+            src="/logo.png"
             alt="Suman Dental Hospital Logo"
             width={180}
             height={60}
@@ -65,20 +95,23 @@ export default function Navbar() {
         {/* Desktop Nav */}
         <div className="hidden lg:flex flex-1 items-center justify-center">
           <ul className="flex gap-8 xl:space-x-12 rounded-md bg-card/20 px-8 py-3">
-            {NAV_LINKS.map((link, idx) => (
-              <li key={link.label} className="flex items-center gap-1">
-                {idx === 0 && (
-                  <span className="text-yellow-400 text-lg">•</span>
-                )}
-                <Link
-                  href={link.href}
-                  className="text-white font-medium manrope-main transition-colors hover:text-[#F9D923]"
-                  scroll={false}
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
+            {NAV_LINKS.map((link) => {
+              const id = link.href.replace('#', '');
+              return (
+                <li key={link.label} className="flex items-center gap-1">
+                  {activeSection === id && (
+                    <span className="text-yellow-400 text-lg">•</span>
+                  )}
+                  <Link
+                    href={link.href}
+                    className="text-white font-medium manrope-main transition-colors hover:text-[#F9D923]"
+                    scroll={false}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </div>
         {/* CTA & Language Dropdown (Desktop only) */}
