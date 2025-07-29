@@ -1,9 +1,11 @@
+'use client';
+
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 
 export default function About() {
   return (
-    <section className="w-full bg-card rounded-t-3xl px-4 lg:px-8 py-16">
+    <section className="w-full bg-card px-4 lg:px-8 py-16">
       <div className="mx-auto flex flex-col md:flex-row gap-12 lg:gap-20">
         {/* Left: Title, points, button */}
         <div className="flex-1 flex flex-col items-start justify-start gap-8 max-w-xl">
@@ -21,8 +23,32 @@ export default function About() {
               <span className="mt-1 block w-2 h-2 rounded-full bg-primary"></span>
               <span>Personalized care for every patient</span>
             </li>
+            <li className="flex items-start gap-3">
+              <span className="mt-1 block w-2 h-2 rounded-full bg-primary"></span>
+              <span>State-of-the-art equipment and advanced dental technology</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="mt-1 block w-2 h-2 rounded-full bg-primary"></span>
+              <span>Strict hygiene and sterilization protocols for patient safety</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="mt-1 block w-2 h-2 rounded-full bg-primary"></span>
+              <span>Comprehensive dental services for all age groups</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="mt-1 block w-2 h-2 rounded-full bg-primary"></span>
+              <span>Friendly staff dedicated to patient comfort and satisfaction</span>
+            </li>
           </ul>
-          <button className="mt-6 bg-primary text-primary-foreground rounded-md px-8 py-4 font-medium text-base flex items-center gap-2 shadow hover:bg-primary/90 transition">
+          <button
+            className="mt-6 bg-primary text-primary-foreground rounded-md px-8 py-4 font-medium text-base flex items-center gap-2 shadow hover:bg-primary/90 transition"
+            onClick={() => {
+              const section = document.getElementById('contact');
+              if (section) {
+                section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }
+            }}
+          >
             Book an appointment <ArrowRight className="w-5 h-5" />
           </button>
         </div>

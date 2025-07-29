@@ -1,8 +1,8 @@
 'use client';
 
-import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { ArrowUpRight, BadgeCheck, Handshake, Building2 } from 'lucide-react';
+import { Clock8 } from "./Clock8";
 
 // Hero section component
 export default function Hero() {
@@ -16,11 +16,13 @@ export default function Hero() {
 
   // Get day name and formatted time
   const dayName = now.toLocaleDateString(undefined, { weekday: 'long' });
-  const timeString = now.toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit', hour12: true });
+  let timeString = now.toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit', hour12: true });
+  // Ensure AM/PM is always uppercase for hydration consistency
+  timeString = timeString.replace(/am|pm/, match => match.toUpperCase());
 
   // For demo, use a placeholder image. Replace src with your own image as needed.
   return (
-    <section className="w-full bg-background pb-12 pt-4">
+    <section className="w-full bg-background pb-20 pt-4">
       <div className="mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-6">
         {/* Left: Headline */}
         <div className="flex-1 min-w-0">
@@ -35,14 +37,17 @@ export default function Hero() {
             <span>Monday–Saturday: <span className="font-medium">09:00 AM–8:30 PM</span></span>
             <span>Sunday: <span className="font-medium">Closed</span></span>
           </div>
-          <div className="flex items-center justify-between bg-white/20 rounded-lg px-4 py-4 text-white gap-4 text-sm md:text-xl w-full md:w-auto">
-            <span>Today is {dayName}</span>
-            <span className="opacity-80">{timeString}</span>
+          <div className="flex items-center justify-between bg-white/20 rounded-lg px-1 py-4 text-white gap-4 text-sm md:text-xl w-full md:w-auto">
+            <span className="flex items-center">
+              <Clock8 width={24} height={24} stroke="#fff" />
+              Today is {dayName}
+            </span>
+            <span className="opacity-80 mr-2">{timeString}</span>
           </div>
         </div>
       </div>
       {/* Main Card with Image and Feature Cards */}
-      <div className="w-full mx-auto mt-10 lg:pb-20 lg:min-h-[680px] bg-card rounded-3xl shadow-lg px-4 md:px-6 py-8 flex flex-col items-center justify-end relative bg-[url('/hero-image.png')] bg-cover bg-no-repeat">
+      <div className="w-full mx-auto mt-10 lg:pb-20 lg:min-h-[680px] bg-card rounded-t-3xl shadow-lg px-4 md:px-6 py-8 flex flex-col items-center justify-end relative bg-[url('/hero-image.png')] bg-cover bg-no-repeat">
         {/* Feature Cards */}
         <div className="w-full grid grid-cols-1 lg:grid-cols-3 gap-4">
           {/* Card 1: Advance Treatment */}
