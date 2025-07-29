@@ -1,15 +1,6 @@
 import Image from "next/image";
 import { Facebook, Instagram } from "lucide-react";
-
-// Inline WhatsApp SVG icon
-function WhatsappIcon(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" {...props}>
-      <rect width="24" height="24" rx="12" fill="#25D366" />
-      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.472-.148-.67.15-.198.297-.767.967-.94 1.166-.173.198-.347.223-.644.075-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.52-.075-.149-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51-.173-.008-.372-.01-.571-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.099 3.205 5.077 4.372.71.306 1.263.489 1.695.626.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.288.173-1.413-.074-.124-.272-.198-.57-.347z" fill="#fff" />
-    </svg>
-  );
-}
+import { FaWhatsapp } from "react-icons/fa";
 
 const doctors = [
   {
@@ -17,9 +8,9 @@ const doctors = [
     degree: "B.D.S, FAD (Germany)",
     img: "/darshan.png",
     socials: [
-      { icon: Facebook, href: "#", bg: "bg-[#1877F3]" },
-      { icon: Instagram, href: "#", bg: "bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7]" },
-      { icon: WhatsappIcon, href: "#", bg: "bg-[#25D366]" },
+      { icon: Facebook, href: "https://www.facebook.com/darshan.kothari.357", bg: "bg-[#1877F3]" },
+      { icon: Instagram, href: "https://www.instagram.com/dr.darshankothari?igsh=MmVrcWppZXV2MnI4", bg: "bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7]" },
+      { icon: FaWhatsapp, href: "https://wa.me/917823007304", bg: "bg-[#25D366]" },
     ],
     description:
       "Dr. Darshan Kothari, a skilled and passionate dental professional with an impressive background in advanced dentistry. A graduate of the esteemed Government Dental College & JJ Group of Hospitals in Mumbai. He is a fellow member of Greifswald University of Germany. He is the founder of Dr. Kothari’s Suman Dental Hospital & has honed his expertise across a wide range of dental procedures, with a specialization in implantology that underscores his commitment to offering innovative and effective solutions to his patients. He stays constantly updated on the ever-changing concepts in dentistry & dedicated to bringing cutting-edge technology into his clinic ensuring to provide the highest quality care and best possible service to his patients.",
@@ -29,8 +20,8 @@ const doctors = [
     degree: "B.D.S",
     img: "/darshika.png",
     socials: [
-      { icon: Facebook, href: "#", bg: "bg-[#1877F3]" },
-      { icon: Instagram, href: "#", bg: "bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7]" },
+      { icon: Facebook, href: "https://www.facebook.com/darshika.kotecha", bg: "bg-[#1877F3]" },
+      { icon: Instagram, href: "https://www.instagram.com/dr_darshika_?igsh=MTJkbTVodXVtZGJyeQ%3D%3D", bg: "bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7]" },
     ],
     description:
       "Dr. Darshika Kotecha (Kothari), a graduate of MGV’s KBH Dental College & Hospital, Nashik, is a highly skilled dentist who has practiced Advanced Dentistry at Aastha Dental Hospital in Pachora for 3 years. In addition to her expertise in Conservative Dentistry and Root Canal treatments, she has a special aptitude for Smile Designing and Smile Corrections. She has also contributed to the dental field through online lectures and case presentations, some of which have been featured in the International Journal of Dental Science.",
@@ -83,7 +74,7 @@ export default function Doctors() {
                   ))}
                 </div>
               </div>
-              <p className="text-base text-gray-700 leading-relaxed mt-2">{doctors[0].description}</p>
+              <p className="text-base text-gray-700 leading-relaxed mt-2 text-justify">{doctors[0].description}</p>
             </div>
           </div>
           {/* Doctor 2 */}
@@ -111,7 +102,7 @@ export default function Doctors() {
                   ))}
                 </div>
               </div>
-              <p className="text-base text-gray-700 leading-relaxed mt-2">{doctors[1].description}</p>
+              <p className="text-base text-gray-700 leading-relaxed mt-2 text-justify">{doctors[1].description}</p>
             </div>
           </div>
         </div>

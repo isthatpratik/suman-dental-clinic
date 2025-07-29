@@ -36,3 +36,19 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
 #Hello
+
+## Contact Form Email Setup
+
+To enable email notifications from the contact form, set the following environment variables in your `.env.local` file:
+
+```
+GMAIL_USER=your-gmail-address@gmail.com
+GMAIL_PASS=your-gmail-app-password
+```
+
+- `GMAIL_USER`: The Gmail address to send emails from (can be the same as the recipient).
+- `GMAIL_PASS`: An App Password generated from your Google Account (not your regular Gmail password). [How to generate an App Password](https://support.google.com/accounts/answer/185833?hl=en)
+
+**Note:** Google requires 2-Step Verification to generate an App Password. Use the generated password in your `.env.local` file.
+
+The recipient email is set to `sumandent2205@gmail.com` in the API route. You can change it in `src/app/api/contact/route.ts` if needed.
