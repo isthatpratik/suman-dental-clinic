@@ -3,8 +3,6 @@
 import { Card, CardContent } from "../ui/card";
 import { Avatar, AvatarImage, AvatarFallback } from "../ui/avatar";
 import { Star } from "lucide-react";
-import { Carousel, CarouselContent, CarouselItem } from "../ui/carousel";
-import Image from "next/image";
 import React from "react";
 import useEmblaCarousel from "embla-carousel-react";
 

@@ -75,8 +75,7 @@ export default function Navbar() {
     };
   }, []);
 
-  const currentLang = LANGUAGES.find(l => l.code === language) || LANGUAGES[0];
-  const otherLangs = LANGUAGES.filter(l => l.code !== language);
+
 
   return (
     <nav className="sticky top-0 z-50 w-full bg-background/50 backdrop-blur-2xl">

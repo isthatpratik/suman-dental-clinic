@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { ArrowUpRight, BadgeCheck, Handshake, Building2 } from 'lucide-react';
 import { Clock8 } from "./Clock8";
